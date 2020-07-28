@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/narvik">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <GridLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:useDefaultMargins="true"
+                        android:alignmentMode="alignBounds"
+                        android:columnOrderPreserved="false"
+                        android:gravity="center"
+                        android:columnCount="3">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ToggleButton
+                                android:id="@+id/tBtnSale"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textOn="FOR SALE"
+                                android:textOff="FOR SALE"
+                                android:layout_weight="1"
+                                android:textStyle="bold"
+                                android:background="@drawable/toggle_button_selector"
+                                android:textColor="@color/white"
+                                android:onClick="initSelectedPropertyMode"/>
+
+                            <ToggleButton
+                                android:id="@+id/tBtnRent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textOn="FOR RENT"
+                                android:textOff="FOR RENT"
+                                android:checked="true"
+                                android:textStyle="bold"
+                                android:layout_weight="1"
+                                android:textColor="@color/white"
+                                android:background="@drawable/toggle_button_selector"
+                                android:onClick="initSelectedPropertyMode"/>
+
+                            <ToggleButton
+                                android:id="@+id/tBtnShortlet"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textOn="SHORT LET"
+                                android:textOff="SHORT LET"
+                                android:textStyle="bold"
+                                android:layout_weight="1"
+                                android:textColor="@color/white"
+                                android:background="@drawable/toggle_button_selector"
+                                android:onClick="initSelectedPropertyMode"/>
+                        </LinearLayout>
+
+                    </GridLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <EditText
+                            android:id="@+id/edtSearch"
+                            android:singleLine="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edittextstyle"
+                            android:textAlignment="center"
+                            android:hint="Search by PID or Area "/>
+                    </LinearLayout>
+
+                    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:stretchColumns="*">
+
+                        <TableRow>
+                            <TextView
+                                android:id="@+id/txtState"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="State" />
+                            <Space android:layout_width="3dp" />
+                            <TextView
+                                android:id="@+id/txtType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="Type" />
+                        </TableRow>
+
+
+                        <TableRow android:layout_marginTop="10dp">
+                            <Spinner
+                                android:id="@+id/spnState"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:spinnerMode="dialog"
+                                android:background="@drawable/spinner_selector"/>
+                            <Space android:layout_width="3dp" />
+                            <Spinner
+                                android:id="@+id/spnType"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:spinnerMode="dialog"
+                                android:background="@drawable/spinner_selector"/>
+                        </TableRow>
+
+                        <TableRow android:layout_marginTop="10dp">
+                            <TextView
+                                android:id="@+id/bed"
+                                android:layout_width="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="Beds" />
+                            <Space android:layout_width="3dp" />
+                            <TextView
+                                android:id="@+id/bath"
+                                android:layout_width="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="Baths" />
+                        </TableRow>
+
+                        <TableRow android:layout_marginTop="10dp">
+                            <Spinner
+                                android:id="@+id/spnBeds"
+                                android:layout_width="100dp"
+                                android:spinnerMode="dialog"
+                                android:background="@drawable/spinner_selector"/>
+                            <Space android:layout_width="3dp" />
+                            <Spinner
+                                android:id="@+id/spnBaths"
+                                android:layout_width="100dp"
+                                android:spinnerMode="dialog"
+                                android:background="@drawable/spinner_selector"/>
+                        </TableRow>
+
+                        <TableRow android:layout_marginTop="10dp">
+                            <TextView
+                                android:id="@+id/minPrice"
+                                android:layout_width="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="Min Price" />
+                            <Space android:layout_width="3dp" />
+                            <TextView
+                                android:id="@+id/maxPrice"
+                                android:layout_width="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="Max Price" />
+                        </TableRow>
+
+                        <TableRow android:layout_marginTop="10dp">
+                            <Spinner
+                                android:id="@+id/spnMinPrice"
+                                android:layout_width="100dp"
+                                android:spinnerMode="dialog"
+                                android:background="@drawable/spinner_selector"/>
+                            <Space android:layout_width="3dp" />
+                            <Spinner
+                                android:id="@+id/spnMaxPrice"
+                                android:layout_width="100dp"
+                                android:spinnerMode="dialog"
+                                android:background="@drawable/spinner_selector"/>
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSearch"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:onClick="search"
+                    android:textColor="@color/white"
+                    android:text="Search"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:drawableRight="@android:drawable/ic_menu_search"
+                    android:background="@drawable/button_selector" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/lltSimilarProperties"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Here are properties matching your last search"
+                    android:background="@color/honeydew"
+                    android:textColor="@color/black"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp">
+
+            <TextView
+                android:id="@+id/btnBrowse"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="browseByStateAndLocality"
+                android:text="Search properties by site map"
+                android:background="@color/honeydew"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:padding="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
+                android:id="@+id/stateAndLocalityCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Search properties by site map"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:paddingBottom="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/spnPropertyMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/spinner_selector"/>
+
+                        <Spinner
+                            android:id="@+id/spnStateMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"
+                            android:background="@drawable/spinner_selector"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp">
+
+                            <TextView
+                                android:id="@+id/txtCaption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Properties for sale in Lagos"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/stateAndLocalityLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
